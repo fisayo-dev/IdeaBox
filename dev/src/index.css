@@ -1,0 +1,35 @@
+@import url('../node_modules/tailwindcss/base.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input{
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    width: 4px
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2563eb;
+    border-radius: 10px;
+}
+
+.dashboardContent {
+    overflow-y: scroll;
+}
+
+.backBlur {
+}
+
+pre {
+    font-family: 'Montserrat';
+}
+

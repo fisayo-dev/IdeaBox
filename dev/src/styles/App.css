@@ -1,0 +1,18 @@
+/* Queries
+.sideBar {
+    display: none;
+}
+
+.menuBar {
+    display: none;
+}
+
+@media screen and (max-width: 635px) {
+    .sideBar {
+        display: none;
+    }
+    .menuBar {
+        display: grid;
+    }
+}
+ */
