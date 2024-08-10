@@ -13,7 +13,7 @@ const Hero = () => {
             </h1>
             <p className="mt-2 text-slate-900 w-full md:w-1/2 tracking-tight text-center lg:text-left md:text-left">
               Save creative, inspiring and innovative thoughts at their instance
-              with <b className="font-extrabold text-blue-600">IdeaBox</b>.
+              with <b className="font-extrabold text-blue-600">StoreIdea</b>.
             </p>
             <div className="grid m-auto md:m-0 items-center md:flex justify-center gap-1 md:gap-3 md:justify-start">
               <Link to="/dashboard/ideas">

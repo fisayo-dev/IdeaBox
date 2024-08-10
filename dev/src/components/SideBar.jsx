@@ -53,9 +53,9 @@ const Sidebar = () => {
       `}
       >
         <div className="mt-5 px-3  ">
-          <Typography variant="h2" color="blue-gray">
+          <Typography variant="h3" color="blue-gray">
             <Link className="font-bold text-blue-600" to="/">
-              IdeaBox
+              StoreIdea
             </Link>
           </Typography>
         </div>
