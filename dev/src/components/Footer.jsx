@@ -1,10 +1,10 @@
 import {
   FaRegCopyright,
-  FaTwitter,
+  FaXTwitter,
   FaLinkedinIn,
   FaGithub,
   FaFacebook,
-} from "react-icons/fa";
+} from "react-icons/fa6";
 
 const Footer = ({ appTitle }) => {
   return (
@@ -22,7 +22,7 @@ const Footer = ({ appTitle }) => {
           <FaGithub />
           <FaLinkedinIn />
           <FaFacebook />
-          <FaTwitter />
+          <FaXTwitter />
         </div>
       </div>
       <hr className="bg-gray-600 " />
