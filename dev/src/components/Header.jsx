@@ -21,7 +21,7 @@ const Header = () => {
     <div>
       <div className="text-blue-600 px-20 py-3 items-center flex justify-between ">
         <NavLink to="/">
-          <h2 className="text-[2rem] font-bold">SaveIdea</h2>
+          <h2 className="text-[2rem] font-bold">StoreIdea</h2>
         </NavLink>
         <div
           className={`flex ${
@@ -60,7 +60,7 @@ const Header = () => {
         <div className=" grid gap-5">
           <div className="flex items-center justify-between">
             <NavLink to="/">
-              <h2 className="text-3xl font-bold">SaveIdea</h2>
+              <h2 className="text-3xl font-bold">StoreIdea</h2>
             </NavLink>
             <div
               className="w-8 cursor-pointer"
