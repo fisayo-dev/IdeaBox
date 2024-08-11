@@ -10,6 +10,8 @@ import {
 
 import { useState, useEffect } from "react";
 import AppPage from "./AppPage";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../utils/AuthContext";
 
 // Msg Color Variables
 const default_Msg_Color = "text-gray-700";
@@ -24,6 +26,16 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
 
+  const navigate = useNavigate();
+  const { user, loginUser } = useAuth();
+
+  // Cannot be in the login page if the you are logged in - directs you to the home page
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard/ideas");
+    }
+  }, []);
+
   // Enables or Disables button whether filled is empty or not
   useEffect(() => {
     if (email.trim() !== "" && password.length >= 8) {
@@ -33,13 +45,11 @@ const Login = () => {
     }
   }, [email, password]);
 
-  // Password type if true or false
-  const passwordType = showPassword ? "text" : "password";
-
   // Submitting Form
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("Submitted Form");
+    const userInfo = { email, password };
+    loginUser(userInfo);
   };
 
   // Validating Input if empty or not
@@ -78,7 +88,7 @@ const Login = () => {
               <div className="flex items-center gap-2 text-md">
                 <FaLock size={20} />
                 <input
-                  type={passwordType}
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   className={`text-gray-700 w-full bg-transparent rounded-md border-0 px-2`}
                   onChange={(e) => {

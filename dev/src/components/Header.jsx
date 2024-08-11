@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="text-blue-600 px-20 py-3 items-center flex justify-between ">
+      <div className="text-blue-600 z-2 px-20 py-3 items-center flex justify-between ">
         <NavLink to="/">
           <h2 className="text-[2rem] font-bold">StoreIdea</h2>
         </NavLink>

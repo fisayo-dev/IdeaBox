@@ -15,7 +15,9 @@ import {
 import db from "../../appwrite/databases";
 import Swal from "sweetalert2";
 
+
 const Idea = ({ ideaData, setIdeas }) => {
+  
   const currentDate = (date) => {
     return new Date(date);
   };

@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import socialMedia from "../../assets/Empty search.svg";
-import { FaXTwitter, FaFacebook, FaLinkedin, FaTwitch } from "react-icons/fa6";
+import { FaXTwitter, FaFacebook, FaLinkedinIn } from "react-icons/fa6";
+import { SiDailydotdev } from 'react-icons/si'
+import { Link } from "react-router-dom";
 
 const Developer = () => {
   return (
@@ -13,15 +15,25 @@ const Developer = () => {
           <h2 className="text-5xl font-bold my-4">Meet Fisayo Obadina</h2>
           <p className="">
             I am a FrontEnd Developer with over <b>four</b> years of experience.
-            My programming skills are <b>HTML 5</b>, <b>CSS 3</b>, <b>JavaScript</b>, <b>Python</b>, <b>React Js</b>, <b>Django</b>, <b>Git</b>, <b>Tailwind</b> and more. I also 
+            My programming skills are <b>HTML 5</b>, <b>CSS 3</b>,{" "}
+            <b>JavaScript</b>, <b>Python</b>, <b>React Js</b>, <b>Django</b>,{" "}
+            <b>Git</b>, <b>Tailwind</b> and more. I also
           </p>
           <div className="grid gap-1">
             <p className="font-bold">Follow me on social media:</p>
             <div className="flex gap-2 justify-center lg:justify-start text-[1.1rem]  items-center">
-              <FaXTwitter className="hover:text-blue-600 cursor-pointer" />
-              <FaTwitch className="hover:text-blue-600 cursor-pointer" />
-              <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
-              <FaFacebook className="hover:text-blue-600 cursor-pointer" />
+              <Link to="https://x.com/fisayocoder">
+                <FaXTwitter className="hover:text-blue-600 cursor-pointer" />
+              </Link>
+              <Link to="https://app.daily.dev">
+                <SiDailydotdev className="hover:text-blue-600 cursor-pointer" />
+              </Link>
+              <Link to="https://linkedin.com">
+                <FaLinkedinIn className="hover:text-blue-600 cursor-pointer" />
+              </Link>
+              <Link to="https://web.facebook.com">
+                <FaFacebook className="hover:text-blue-600 cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>

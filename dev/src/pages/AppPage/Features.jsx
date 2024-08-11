@@ -12,8 +12,7 @@ const Features = () => {
             </div>
             <h3 className="text-2xl font-bold">Fast Authentication.</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni at
-              asperiores nisi?
+              Built it with sessions to aid swift authentication of user.
             </p>
           </div>
           <div className="grid gap-1 text-center py-5 px-3 md:py-10 md:px-5 max-w-sm m-auto md:max-w-full items-center  rounded-lg border-2 border-gray-100">
@@ -22,8 +21,7 @@ const Features = () => {
             </div>
             <h3 className="text-2xl font-bold">Reliable Database</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni at
-              asperiores nisi?
+              All ideas and users interaction with ideas are safe and only accessible by the user.
             </p>
           </div>
           <div className="grid gap-1 text-center py-5 px-3 md:py-10 md:px-5 max-w-sm m-auto md:max-w-full items-center  rounded-lg border-2 border-gray-100">
@@ -32,8 +30,7 @@ const Features = () => {
             </div>
             <h3 className="text-2xl font-bold">User Friendly Interface</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni at
-              asperiores nisi?
+              It helps increase user experience by providing them an elegant and precise look.
             </p>
           </div>
         </div>

@@ -9,12 +9,15 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { toWords } from "number-to-words";
 import EmptySearch from "../../assets/Empty search.svg";
+import { useAuth } from "../../utils/AuthContext";
 
 const Home = () => {
   const [ideasList, setIdeasList] = useState([]);
   const [filteredIdeasList, setFilteredIdeasList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchWord, setSearchWord] = useState("");
+
+  const { user } = useAuth()
 
   useEffect(() => {
     loadIdeas();
@@ -28,6 +31,7 @@ const Home = () => {
     try {
       const res = await db.ideas.list([Query.orderDesc("$createdAt")]);
       const ideas = res.documents;
+      // const userIdeas = ideas.filter((i) => i.userId === user.userID)
       setIdeasList(ideas);
       setFilteredIdeasList(ideas);
       setIsLoading(false);

@@ -17,9 +17,13 @@ import {
 import { useEffect, useState } from "react";
 import { FaLightbulb } from "react-icons/fa6";
 
+import { useAuth } from "../utils/AuthContext";
+
 const Sidebar = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const { logoutUser } = useAuth();
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -35,11 +39,11 @@ const Sidebar = () => {
       : "flex items-center rounded-lg hover:bg-gray-100   hover:text-blue-600";
 
   let sideBarClass = "";
-  let greyedClass = "hidden"
+  let greyedClass = "hidden";
   if (menuOpened && windowWidth <= 944) {
     // Checks if menu is opened and app is small
     sideBarClass = "animate-slideInLeft fixed shadow-lg left-0 top-0 ";
-    greyedClass = 'grid cursor-pointer '
+    greyedClass = "grid cursor-pointer ";
   } else if (!menuOpened && windowWidth <= 944) {
     // Check if menu is closed and app is small
     sideBarClass = "animate-slideOutLeft fixed";
@@ -93,13 +97,9 @@ const Sidebar = () => {
                 Activity
               </ListItem>
             </NavLink>
-            <NavLink to="/dashboard/logout" className={nameofClass}>
-              <ListItem className="p-3">
-                <ListItemPrefix className="mr-1.5">
-                  <PowerIcon className="h-5 w-5 " />
-                </ListItemPrefix>
-                Log Out
-              </ListItem>
+            <NavLink className='flex items-center gap-2 justify-center text-white bg-blue-600 px-5 py-2 rounded-md mt-5 hover:bg-blue-800 font-bold' onClick={logoutUser}>
+                <PowerIcon className="h-5 w-5" />
+                <p>Log Out</p>
             </NavLink>
           </List>
         </div>
@@ -122,9 +122,12 @@ const Sidebar = () => {
         </div>
       </div>
       {/* <hr /> */}
-      <div onClick={() => {
-        setMenuOpened(false)
-      }} className={`${greyedClass} backBlur bg-white w-full top-[48px] h-[100vh] fixed opacity-[0.9]`}></div>
+      <div
+        onClick={() => {
+          setMenuOpened(false);
+        }}
+        className={`${greyedClass} backBlur bg-white w-full top-[48px] h-[100vh] fixed opacity-[0.9]`}
+      ></div>
     </>
   );
 };

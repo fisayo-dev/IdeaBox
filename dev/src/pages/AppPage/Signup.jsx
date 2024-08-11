@@ -11,12 +11,13 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 import AppPage from "./AppPage";
+import { useAuth } from "../../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 // Msg Color Variables
 const default_Msg_Color = "text-gray-700";
 const Error_Msg_Color = "text-red-700";
 const Success_Msg_Color = "text-green-700";
-// const Warning_Msg_Color = 'text-orange-700'
 
 const Signup = () => {
   // Input States
@@ -25,24 +26,27 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Input status states
+  const { user, registerUser } = useAuth();
+
   const [usernameStatus, setUsernameStatus] = useState(default_Msg_Color);
   const [emailStatus, setEmailStatus] = useState(default_Msg_Color);
   const [passwordStatus, setPasswordStatus] = useState(default_Msg_Color);
-  const [confirmPasswordStatus, setConfirmPasswordStatus] =
-    useState(default_Msg_Color);
-
-  // Toogle Password State
+  const [confirmPasswordStatus, setConfirmPasswordStatus] = useState(default_Msg_Color);
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const passwordType = showPassword ? "text" : "password";
   const confirmPasswordType = showConfirmPassword ? "text" : "password";
-
-  // DiabledButton
   const [disableButton, setDisableButton] = useState(true);
 
+  const navigate = useNavigate()
+
+  // Cannot be in the login page if the you are logged in - directs you to the home page
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard/ideas");
+    }
+  }, []);
   // Enables or Disables button whether filled is empty or not
   useEffect(() => {
     if (
@@ -59,7 +63,8 @@ const Signup = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("Successfully filled all inputs");
+    const userInfo = { username, email, password };
+    registerUser(userInfo);
   };
 
   // Validate all inputs

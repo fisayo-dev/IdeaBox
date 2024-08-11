@@ -10,7 +10,7 @@ import Signup from "./pages/AppPage/Signup";
 import Login from "./pages/AppPage/Login";
 // Dashboard Pages
 import Ideas from "./pages/UserPage/Ideas";
-import Create from "./pages/UserPage/Create"; 
+import Create from "./pages/UserPage/Create";
 import Profile from "./pages/UserPage/Profile";
 import Activity from "./pages/UserPage/Activity";
 import Logout from "./pages/UserPage/Logout";
