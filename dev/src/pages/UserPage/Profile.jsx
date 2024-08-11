@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <UserPages styleClass="pt-10">
       <h2 className="text-4xl text-center font-bold">Profile</h2>
-      <div className="p-5 m-3">
+      <div className="m-3">
         {/* Porfile Card */}
         <div className="p-5 border border-gray-300 rounded-lg w-full md:w-3/4 m-auto">
           <div className="grid md:flex items-center gap-3">
@@ -14,7 +14,7 @@ const Profile = () => {
               alt=""
               draggable={false}
             />
-            <div className="p-2 w-full">
+            <div className="p-2 text-[0.8rem] w-full">
               <pre>
                 <t className="font-bold">ID:</t> 23243121327690934
               </pre>

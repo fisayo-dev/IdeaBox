@@ -109,7 +109,7 @@ const Sidebar = () => {
       <div className={windowWidth <= 944 ? "grid" : "hidden"}>
         <div className="fixed flex items-center justify-between gap-5 px-5 py-2 mb-10 bg-white shadow-sm w-full">
           <Link className="font-extrabold text-2xl" to="/">
-            IdeaBox
+            StoreIdea
           </Link>
           <div
             onClick={() => {
