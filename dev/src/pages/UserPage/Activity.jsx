@@ -4,6 +4,7 @@ import { useAuth } from "../../utils/AuthContext";
 
 const Activity = () => {
   const { user } = useAuth();
+   const userActive = `${new Date(user.accessedAt).getDay()}/${new Date(user.accessedAt).getMonth() + 1}/${new Date(user.accessedAt).getFullYear()} `
   return (
     <UserPages styleClass="pt-10">
       <h2 className="text-4xl text-center font-bold">Activity</h2>
@@ -18,8 +19,8 @@ const Activity = () => {
               draggable={false}
             />
             <div className="text-center text-2xl">
-              <p>You are current online</p>
-              <small className="text-[0.9rem]">You joined 7/12/2024</small>
+              <p>You are current online { user.name}</p>
+              <small className="text-[0.9rem]">You were last active {userActive}</small>
             </div>
           </div>
         </div>

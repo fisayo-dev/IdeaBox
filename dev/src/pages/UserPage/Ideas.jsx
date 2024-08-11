@@ -17,7 +17,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchWord, setSearchWord] = useState("");
 
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   useEffect(() => {
     loadIdeas();
@@ -31,9 +31,9 @@ const Home = () => {
     try {
       const res = await db.ideas.list([Query.orderDesc("$createdAt")]);
       const ideas = res.documents;
-      // const userIdeas = ideas.filter((i) => i.userId === user.userID)
-      setIdeasList(ideas);
-      setFilteredIdeasList(ideas);
+      const userIdeas = ideas.filter((i) => i.ideaID === user.$id);
+      setIdeasList(userIdeas);
+      setFilteredIdeasList(userIdeas);
       setIsLoading(false);
     } catch (error) {
       console.error("Network server went down.", error);
@@ -68,7 +68,9 @@ const Home = () => {
                 alt="Empty Ideas"
                 className="w-2/5 m-auto"
               />
-              <h2 className="text-3xl font-bold">Ideas List is Empty</h2>
+              <h2 className="text-3xl font-bold">
+                {user.name}, Your ideas list is empty.
+              </h2>
               <Link to="../dashboard/create">
                 <Button text="Create Idea" styles="m-auto md:w-1/3" />
               </Link>
@@ -85,7 +87,7 @@ const Home = () => {
                     type="text"
                     placeholder={`Search through ${toWords(ideasList.length)} ${
                       ideasList.length === 1 ? "idea" : "ideas"
-                    } by title`}
+                    } by title, ${user.name}`}
                     className="w-full bg-transparent p-3"
                     value={searchWord}
                     onChange={(e) => setSearchWord(e.target.value)}
@@ -106,7 +108,7 @@ const Home = () => {
                 {filteredIdeasList.length == 0 ? (
                   <div className="grid text-center justify-center gap-5">
                     <img src={EmptySearch} className="w-2/5 m-auto" />
-                    <p>No result for search</p>
+                    <p>No result for search, {user.name}</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 items-start md-custom-breakpoint:grid-cols-2 lg-custom-breakpoint:grid-cols-3 gap-5">

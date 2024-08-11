@@ -10,7 +10,7 @@ import {
 
 import { useState, useEffect } from "react";
 import AppPage from "./AppPage";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
 
 // Msg Color Variables
@@ -110,6 +110,9 @@ const Login = () => {
               </div>
             </div>
           </InputHolder>
+          <div className="p-3 text-center">
+            New to Storeidea? <Link to='/signup' className="font-bold text-blue-600">Create account</Link>
+          </div>
           <Button disabled={disableButton} />
         </form>
       </section>

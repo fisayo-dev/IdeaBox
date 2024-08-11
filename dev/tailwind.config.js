@@ -20,6 +20,11 @@ export default {
           '0%': { transform: 'rotate(0)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        load: {
+          '0%': { opacity: 0 },
+          '50%': { opacity: 0.5 },
+          '100%' :{opacity: 1}
+        },
         fadeIn: {
           '0%': {opacity: 0},
           '100%': {opacity: 1}
@@ -49,7 +54,8 @@ export default {
       animation: {
         spinner: 'spinner 1s ease-in-out infinite',
         scale: 'scale 1s ease-in-out infinite',
-        fadeIn: 'fadeIn 0.5s ease-in-out',
+        fadeIn: 'fadeIn 1s ease-in-out',
+        load: 'load 0.5s ease-in-out infinite',
         slideInLeft: 'slideInLeft 0.05s forwards',
         slideOutLeft: 'slideOutLeft 0.06s forwards',
         slideInRight: 'slideInRight 0.05s forwards',

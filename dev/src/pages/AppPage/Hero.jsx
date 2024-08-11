@@ -1,8 +1,10 @@
 import ideas from "../../assets/ideas.svg";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../utils/AuthContext";
 // import
 
 const Hero = () => {
+  const {user}  = useAuth()
   return (
     <div className="">
       <div className="m-auto bg-blue-40 items-center flex ">
@@ -18,7 +20,11 @@ const Hero = () => {
             <div className="grid m-auto md:m-0 items-center md:flex justify-center gap-1 md:gap-3 md:justify-start">
               <Link to="/dashboard/ideas">
                 <button className="py-2 w-full px-3 rounded-md border-2 border-blue-600 hover:border-blue-800 bg-blue-600 hover:bg-blue-800 mt-3 md:mt-5 text-white">
-                  Get Started
+                  {user ?
+                    `Back to Dashboard, ${user.name}`
+                    :
+                    'Get Started'
+                  }
                 </button>
               </Link>
             </div>

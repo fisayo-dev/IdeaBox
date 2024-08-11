@@ -16,26 +16,37 @@ import {
 
 import { useEffect, useState } from "react";
 import { FaLightbulb } from "react-icons/fa6";
-
 import { useAuth } from "../utils/AuthContext";
+import db from "../appwrite/databases";
+import { Query } from "appwrite";
 
 const Sidebar = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [ideasList, setIdeasList] = useState([]);
 
-  const { logoutUser } = useAuth();
+  const { user, logoutUser } = useAuth();
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
 
+  const getUserIdeasLength = async () => {
+    const res = await db.ideas.list([Query.orderDesc("$createdAt")]);
+    const ideas = res.documents;
+    const userIdeas = ideas.filter((i) => i.ideaID === user.$id);
+    setIdeasList(userIdeas)
+  }
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, []);
-
+  
+  useEffect(() => {
+    getUserIdeasLength()
+  },ideasList)
   const nameofClass = ({ isActive }) =>
     isActive
-      ? "text-blue-600  font-bold"
+      ? "flex items-center text-blue-600 font-bold"
       : "flex items-center rounded-lg hover:bg-gray-100   hover:text-blue-600";
 
   let sideBarClass = "";
@@ -66,11 +77,14 @@ const Sidebar = () => {
         <div className="mt-10">
           <List className="grid ">
             <NavLink to="/dashboard/ideas" className={nameofClass}>
-              <ListItem className="p-3">
+              <ListItem className="p-3 flex gap-1">
                 <ListItemPrefix className="mr-1.5">
                   <FaLightbulb className="h-5 w-5 " />
                 </ListItemPrefix>
-                Ideas
+                <p className="w-full">Ideas</p>
+                <div className="text-[1rem] items-center flex justify-center bg-blue-600 text-white p-2 w-7 h-7 rounded-full ">
+                  <p>{(ideasList.length) < 100 ? ideasList.length : ''}</p>
+                </div>
               </ListItem>
             </NavLink>
             <NavLink to="/dashboard/create" className={nameofClass}>
@@ -97,9 +111,12 @@ const Sidebar = () => {
                 Activity
               </ListItem>
             </NavLink>
-            <NavLink className='flex items-center gap-2 justify-center text-white bg-blue-600 px-5 py-2 rounded-md mt-5 hover:bg-blue-800 font-bold' onClick={logoutUser}>
-                <PowerIcon className="h-5 w-5" />
-                <p>Log Out</p>
+            <NavLink
+              className="flex items-center gap-2 justify-center text-white bg-blue-600 px-5 py-2 rounded-md mt-5 hover:bg-blue-800 font-bold"
+              onClick={logoutUser}
+            >
+              <PowerIcon className="h-5 w-5" />
+              <p>Log Out</p>
             </NavLink>
           </List>
         </div>

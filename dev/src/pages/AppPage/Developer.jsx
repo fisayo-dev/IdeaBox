@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import socialMedia from "../../assets/Empty search.svg";
+import profile from "../../assets/profile2.svg";
 import { FaXTwitter, FaFacebook, FaLinkedinIn } from "react-icons/fa6";
-import { SiDailydotdev } from 'react-icons/si'
+import { SiDailydotdev } from "react-icons/si";
 import { Link } from "react-router-dom";
 
 const Developer = () => {
@@ -25,20 +25,20 @@ const Developer = () => {
               <Link to="https://x.com/fisayocoder">
                 <FaXTwitter className="hover:text-blue-600 cursor-pointer" />
               </Link>
-              <Link to="https://app.daily.dev">
+              <Link to="https://app.daily.dev/fisayodev">
                 <SiDailydotdev className="hover:text-blue-600 cursor-pointer" />
               </Link>
-              <Link to="https://linkedin.com">
+              <Link to="https://www.linkedin.com/in/olufisayo-obadina-a38614267/">
                 <FaLinkedinIn className="hover:text-blue-600 cursor-pointer" />
               </Link>
-              <Link to="https://web.facebook.com">
+              <Link to="https://web.facebook.com/olufisayo.obadina/">
                 <FaFacebook className="hover:text-blue-600 cursor-pointer" />
               </Link>
             </div>
           </div>
         </div>
         <img
-          src={socialMedia}
+          src={profile}
           className="m-auto w-2/4 md:w-5/12 lg:3/12"
           draggable={false}
         />

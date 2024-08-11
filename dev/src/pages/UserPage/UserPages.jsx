@@ -5,7 +5,7 @@ const UserPages = ({ children, styleClass }) => {
     <div className="relative flex justify-between ">
       <Sidebar />
       <div
-        className={`grid px-5 py-5 h-full dashboardContent w-full max-w-[84rem] pt-[4rem] overflow-x-hidden ${styleClass}`}
+        className={`grid px-5 py-5 h-[100vh] dashboardContent w-full max-w-[84rem] pt-[4rem] overflow-x-hidden ${styleClass}`}
       >
         {children}
       </div>

@@ -5,10 +5,13 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useAuth } from "../../utils/AuthContext";
 
 const Create = () => {
   const navigate = useNavigate();
   const [greyBtn, setGreyBtn] = useState(false);
+  const { user } = useAuth();
+  const userID = user.$id;
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -45,6 +48,7 @@ const Create = () => {
     } else {
       try {
         await db.ideas.create({
+          ideaID: userID,
           title: ideaTitle,
           content: ideaContent,
           category: ideaCategory,

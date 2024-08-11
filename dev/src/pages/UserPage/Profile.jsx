@@ -1,6 +1,10 @@
 import UserPages from "./UserPages";
 import profile from "../../assets/profile.svg";
+import { useAuth } from "../../utils/AuthContext";
 const Profile = () => {
+  const { user } = useAuth()
+  const userDate = `${new Date(user.registration).getDay()}/${new Date(user.registration).getMonth() + 1}/${new Date(user.registration).getFullYear()} `
+ 
   return (
     <UserPages styleClass="pt-10">
       <h2 className="text-4xl text-center font-bold">Profile</h2>
@@ -16,20 +20,20 @@ const Profile = () => {
             />
             <div className="p-2 text-[0.8rem] w-full">
               <pre>
-                <t className="font-bold">ID:</t> 23243121327690934
+                <t className="font-bold">ID:</t> {user.$id}
               </pre>
               <pre>
-                <t className="font-bold">Username:</t> Fizzydev
+                <t className="font-bold">Username:</t> {user.name}
               </pre>
               <pre>
                 <t className="font-bold">Email Address:</t>{" "}
-                fisayobadina@gmail.com
+                {user.email}
               </pre>
               <pre>
                 <t className="font-bold">Password:</t> ************
               </pre>
               <pre>
-                <t className="font-bold">Date Joined:</t> 23rd June, 2024
+                <t className="font-bold">Date Joined:</t> {userDate}
               </pre>
             </div>
           </div>

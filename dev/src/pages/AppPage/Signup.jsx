@@ -13,6 +13,7 @@ import {
 import AppPage from "./AppPage";
 import { useAuth } from "../../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Msg Color Variables
 const default_Msg_Color = "text-gray-700";
@@ -183,6 +184,9 @@ const Signup = () => {
               </div>
             </div>
           </InputHolder>
+          <div className="p-3 text-center">
+            Already have an account? <Link to='/login' className="font-bold text-blue-600">Login</Link>
+          </div>
           <Button disabled={disableButton} />
         </form>
       </section>
