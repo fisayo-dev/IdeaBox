@@ -21,9 +21,9 @@ export default {
           '100%': { transform: 'rotate(360deg)' },
         },
         load: {
-          '0%': { opacity: 0 },
-          '50%': { opacity: 0.5 },
-          '100%' :{opacity: 1}
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
         },
         fadeIn: {
           '0%': {opacity: 0},
@@ -55,7 +55,7 @@ export default {
         spinner: 'spinner 1s ease-in-out infinite',
         scale: 'scale 1s ease-in-out infinite',
         fadeIn: 'fadeIn 1s ease-in-out',
-        load: 'load 0.5s ease-in-out infinite',
+        load: 'load 2s ease-in-out infinite',
         slideInLeft: 'slideInLeft 0.05s forwards',
         slideOutLeft: 'slideOutLeft 0.06s forwards',
         slideInRight: 'slideInRight 0.05s forwards',
