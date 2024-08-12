@@ -83,7 +83,7 @@ const Sidebar = () => {
                 </ListItemPrefix>
                 <p className="w-full">Ideas</p>
                 <div className="text-[1rem] items-center flex justify-center bg-blue-600 text-white p-2 w-7 h-7 rounded-full ">
-                  <p>{(ideasList.length) < 100 ? ideasList.length : ''}</p>
+                  <p>{(ideasList.length) < 100 ? ideasList.length : '100+'}</p>
                 </div>
               </ListItem>
             </NavLink>
