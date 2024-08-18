@@ -7,9 +7,6 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Montserrat', 'IBM Plex Mono'],
-      },
       screens: {
         'md-custom-breakpoint': '974px',
         'lg-custom-breakpoint': '1260px',
